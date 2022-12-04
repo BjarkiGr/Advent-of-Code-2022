@@ -13,7 +13,6 @@ input = [line.strip() for line in open("day03/input.txt").readlines()]
 d = dict(zip(string.ascii_letters, range(1, 53)))
 
 totalPoints = 0
-groupNumber = 1
 
 def getPriority(x):
     priority = d.get(x)
