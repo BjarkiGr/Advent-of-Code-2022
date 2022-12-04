@@ -1,0 +1,39 @@
+#         ___   ___        _  ___          _ 
+#        / _ \ / _ \      | |/ _ \        | |
+#  _ __ | | | | | | |_ __ | | | | |_ __ __| |
+# | '_ \| | | | | | | '_ \| | | | | '__/ _` |
+# | |_) | |_| | |_| | |_) | | |_| | | | (_| |
+# | .__/ \___/ \___/| .__/|_|\___/|_|  \__,_|
+# | |               | |                      
+# |_|               |_|
+                       
+import string
+input = [line.strip() for line in open("day03/input.txt").readlines()]
+
+d = dict(zip(string.ascii_letters, range(1, 53)))
+
+totalPoints = 0
+groupNumber = 1
+
+def getPriority(x):
+    priority = d.get(x)
+    return priority
+
+def compare(a, b, c):
+    for i in range(len(a)):
+        for j in range(len(b)):
+            for k in range(len(c)):
+                if (a[i] == b[j] and a[i] == c[k]):
+                    return getPriority(a[i])
+
+
+for i in range(0, len(input), 3):
+    rucksack1 = input[i]
+    rucksack2 = input[i+1]
+    rucksack3 = input[i+2]
+
+    totalPoints += compare(rucksack1, rucksack2, rucksack3)
+
+
+        
+print(totalPoints)
