@@ -38,6 +38,10 @@ for i in range(len(a)):
         counter += 1
         print("A includes B")
 
+    elif taskAA[i] >= taskAB[i] and taskAB[i] <= taskBB[i]:
+        counter += 1
+        print("B includes A")
+
     elif taskBA[i] <= taskAA[i] and taskBB[i] >= taskAB[i]:
         counter += 1
         print("B includes A")
@@ -45,6 +49,10 @@ for i in range(len(a)):
     else:
         nacounter += 1
         print("n/a")
+        print(taskAA[i], taskAB[i], taskBA[i], taskBB[i])
+
+
+
 
 print(counter, "are fully included")
 print(nacounter, "are not included")
